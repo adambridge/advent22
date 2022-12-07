@@ -1,0 +1,13 @@
+file = File.open('input')
+path = []
+file.readlines[0..20].each do |line|
+  puts line
+  case line
+  when /^\$ +cd +(.*)$/
+    path << $1
+  when /^\$ +cd +\.\.$/
+    path.pop
+  end
+  puts "PWD: '#{path.join("/")}'"
+end
+
